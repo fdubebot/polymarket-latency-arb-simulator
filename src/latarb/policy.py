@@ -25,6 +25,8 @@ class LinUCBPolicy:
     @staticmethod
     def _inv(a: ArmState) -> tuple[float, float, float]:
         det = a.a00 * a.a11 - a.a01 * a.a01
+        if abs(det) < 1e-12:
+            det = 1e-12
         return (a.a11 / det, -a.a01 / det, a.a00 / det)
 
     def choose(self, signal: float, volatility: float) -> Action:

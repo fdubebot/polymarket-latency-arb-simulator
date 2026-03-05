@@ -26,10 +26,11 @@ class Fill:
     price: float
     size: float
     edge: float
+    reason: str = "signal_trade"
 
 
 @dataclass(slots=True)
-class StepResult:
-    pnl_delta: float
-    inventory_delta: float
-    fills: list[Fill]
+class EquityPoint:
+    t: int
+    equity: float
+    inventory: float

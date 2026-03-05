@@ -1,0 +1,19 @@
+{
+  "simulation": {
+    "steps": 1200,
+    "latency_ms": 120,
+    "fee_bps": 5.0,
+    "seed": 7
+  },
+  "risk": {
+    "max_abs_inventory": 180.0,
+    "drawdown_limit": 18.0,
+    "risk_budget": 250.0,
+    "liquidation_fraction": 0.35
+  },
+  "output": {
+    "output_dir": "artifacts",
+    "run_name": "baseline",
+    "write_csv": true
+  }
+}

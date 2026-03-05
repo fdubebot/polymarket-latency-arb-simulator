@@ -4,15 +4,26 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "polymarket-latency-arb-simulator"
-version = "0.1.0"
+version = "0.2.0"
 description = "AI-driven latency arbitrage simulator for prediction markets"
 readme = "README.md"
 requires-python = ">=3.10"
 authors = [{name = "Felix Dube"}]
 dependencies = []
 
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0",
+  "ruff>=0.9",
+  "mypy>=1.11",
+  "build>=1.2",
+]
+
 [project.scripts]
 latarb-sim = "latarb.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
 
 [tool.pytest.ini_options]
 pythonpath = ["src"]
@@ -21,3 +32,11 @@ addopts = "-q"
 [tool.ruff]
 line-length = 100
 target-version = "py310"
+
+[tool.mypy]
+python_version = "3.10"
+warn_unused_ignores = true
+warn_redundant_casts = true
+strict_optional = true
+check_untyped_defs = true
+files = ["src"]
